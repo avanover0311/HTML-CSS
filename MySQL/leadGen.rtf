@@ -1,0 +1,90 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 use lead_gen_business;\
+#1\
+select monthname(charged_datetime),sum(amount)\
+from billing\
+where month(charged_datetime) = 03 and year(charged_datetime) = 2012;\
+#2\
+select clients.client_id,sum(amount)\
+from billing\
+join clients on clients.client_id = billing.client_id\
+where clients.client_id = 2\
+;\
+#3\
+select domain_name,clients.client_id\
+from sites\
+join clients on clients.client_id = sites.client_id \
+where clients.client_id = 10;\
+#4\
+select clients.client_id,count(*), monthname(created_datetime),year(created_datetime)\
+from sites\
+join clients on clients.client_id = sites.client_id \
+where clients.client_id = 1\
+group by month(created_datetime),year(created_datetime);\
+select clients.client_id,count(*), monthname(created_datetime),year(created_datetime)\
+from sites\
+join clients on clients.client_id = sites.client_id \
+where clients.client_id = 20\
+group by month(created_datetime),year(created_datetime);\
+#5\
+select count(*), sites.domain_name\
+from leads\
+join sites on sites.site_id = leads.site_id\
+where registered_datetime between date '2011/1/1' and date '2011/02/15'\
+group by sites.site_id\
+order by registered_datetime\
+;\
+#6\
+select clients.first_name,count(*)\
+from leads\
+join sites on sites.site_id = leads.site_id\
+join clients on clients.client_id = sites.client_id\
+where registered_datetime between date '2011/1/1' and date '2011/12/31'\
+group by clients.client_id\
+order by registered_datetime\
+;\
+#7\
+select clients.first_name,count(*),monthname(registered_datetime)\
+from leads\
+join sites on sites.site_id = leads.site_id\
+join clients on clients.client_id = sites.client_id\
+where registered_datetime between date '2011/1/1' and date '2011/06/30'\
+and year(registered_datetime) = 2011\
+group by clients.client_id,month(registered_datetime)\
+order by registered_datetime\
+;\
+#8\
+select clients.first_name, sites.domain_name,count(*)\
+from leads\
+join sites on sites.site_id = leads.site_id\
+join clients on clients.client_id = sites.client_id\
+where registered_datetime between date '2011/1/1' and date '2011/12/31'\
+and year(registered_datetime) = 2011\
+group by clients.client_id,sites.site_id\
+order by clients.client_id\
+;\
+select clients.first_name, sites.domain_name,count(*)\
+from leads\
+join sites on sites.site_id = leads.site_id\
+join clients on clients.client_id = sites.client_id\
+group by clients.client_id,sites.site_id\
+order by first_name;\
+#9\
+select concat(first_name,' ',last_name) as name,sum(amount),year(charged_datetime),monthname(charged_datetime)\
+from billing\
+join clients on clients.client_id = billing.client_id\
+group by clients.client_id,year(charged_datetime),month(charged_datetime)\
+order by clients.client_id\
+;\
+#10\
+select concat(first_name,' ',last_name) as name,group_concat(sites.domain_name SEPARATOR ' / ')\
+from sites\
+join clients on clients.client_id = sites.client_id \
+group by clients.client_id\
+order by name ;}

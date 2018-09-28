@@ -1,0 +1,49 @@
+*{
+
+}
+body {
+	width: 970px;
+	height: 970px;
+}
+
+header {
+	display: block;
+
+
+}
+img {
+	display: inline-block;
+	width: 150px;
+	height:150px;
+
+}
+h1 {
+	display: inline-block;
+
+}
+h2 {
+	display: block;
+	background-color: #4F81A9;
+	height: 50px;
+	color: white;
+
+}
+p {
+	color: #4F81A9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+*{
+	outline: 1px dotted red;
+}
+div {
+	
+} 
+.container {
+	width:780px;
+	min-height: 500px;
+	background-color: black;
+	padding: 5px;
+}
+.header {
+	background-color: palegreen;
+	min-height: 50px;
+	width: 750px;
+	margin: 15px;
+
+}
+
+.nav {
+	width: 200px;
+	background-color: lightblue;
+	display: inline-block;
+	min-height: 300px;
+	width: 105px;
+	margin: 10px;
+}
+
+.nav button {
+	display:block;
+	margin: 25px;
+}
+.main {
+	width: 625px;
+	min-height: 300px;
+	display: inline-block;
+	vertical-align: top;
+	background-color: red;
+}
+	.box {
+		width: 120px;
+		height: 150px;
+		display: inline-block;
+		margin: 25px;
+		background-color: purple;
+}
+
+.footer {
+	background-color: lightcoral;
+	padding: 5px;
+	min-height: 50px;
+	width: 750px;
+
+}

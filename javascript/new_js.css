@@ -1,0 +1,40 @@
+#wrapper {
+ width: 970px;
+ background-color: blue;
+ margin: 0px auto;
+ padding-top: 5px;
+ padding-bottom: 130px;
+ padding-right: 15px;
+}
+
+#home {
+color: white;
+display: block;
+padding: 15px;
+margin: 15px;
+margin-top: 15px;
+position: relative;
+
+}
+#h3 {
+ background-color: green;
+ display: inline-block;
+
+}
+#maininfo {
+height: 100px;
+width: 300px;
+background-color: red;
+float: right;
+position: relative
+color: white;
+
+}
+
+#url {
+display: inline-block;
+background-color: grey;
+
+}
+
+

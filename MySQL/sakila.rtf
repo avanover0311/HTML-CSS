@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 use sakila;\
+select first_name,last_name,email,address\
+from customer\
+join address on address.address_id = customer.address_id\
+where city_id = 312;\
+select title,description,release_year,rating,special_features,category.name as 'genre'\
+from film\
+join film_category on film.film_id = film_category.film_id\
+join category on category.category_id = film_category.category_id\
+where category.name = 'comedy';\
+select title,description,release_year\
+from film \
+join film_actor on film_actor.film_id = film.film_id\
+where actor_id = 5;\
+select first_name,last_name,email,address\
+from customer\
+join store on store.store_id = customer.store_id\
+join address on address.address_id = customer.address_id\
+where city_id in (1,42,312,459)\
+and store.store_id = 1;\
+select title,description,release_year,rating,special_features\
+from film\
+join film_actor on film.film_id = film_actor.film_id\
+where actor_id = 15\
+and rating = 'G'\
+and special_features like '%Behind the Scenes%';\
+select first_name,last_name,actor.last_update\
+from actor\
+join film_actor on actor.actor_id = film_actor.actor_id\
+where film_id = 369;\
+select title,description,release_year,rating,special_features,category.name \
+from film\
+join film_category on film.film_id = film_category.film_id\
+join category on film_category.category_id = category.category_id\
+where category.name = 'Drama'\
+and rental_rate = 2.99\
+order by film.film_id;\
+select title,description,release_year,rating,special_features,category.name as 'genre', first_name,last_name\
+from film\
+join film_category on film.film_id = film_category.film_id\
+join category on film_category.category_id = category.category_id\
+join film_actor on film.film_id = film_actor.film_id\
+join actor on actor.actor_id = film_actor.actor_id\
+where last_name = 'kilmer'\
+and first_name = 'sandra'\
+and category.name = 'action';\
+}
